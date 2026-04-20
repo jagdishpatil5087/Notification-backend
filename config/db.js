@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 // ✅ Connect function
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/myapp");
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
 
-    console.log("MongoDB Connected ✅");
+    console.log(`MongoDB Connected 🟢: ${conn.connection.host}`);
   } catch (error) {
-    console.error("DB Error ❌", error);
+    console.error("DB Error ❌:", error);
     process.exit(1);
   }
 };
