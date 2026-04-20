@@ -89,7 +89,7 @@ app.get("/api/users", async (req, res) => {
 });
 
 app.post("/send-notification", async (req, res) => {
-  console.log("Notification api call ");
+  console.log("Notification api call : ", req.body);
 
   try {
     const { fcmToken, title, body } = req.body;
